@@ -22,6 +22,6 @@ Package.onUse(function(api) {
   api.addFiles([
   	'lib/client/autoform-map.html',
     'lib/client/autoform-map.css',
-  	'lib/client/autoform-map.coffee'
+  	'lib/client/autoform-map.js'
   ], 'client');
 });
