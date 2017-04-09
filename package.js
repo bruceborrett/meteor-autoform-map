@@ -9,7 +9,6 @@ Package.onUse(function(api) {
   api.versionsFrom('1.0');
 
   api.use([
-  	'coffeescript',
   	'templating',
     'reactive-var',
   	'aldeed:autoform@5.6.0'
