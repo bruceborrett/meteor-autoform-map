@@ -13,27 +13,51 @@ Schemas = {};
 Cities = new Meteor.Collection('cities');
 
 Schemas.Cities = new SimpleSchema({
-	name: {
-		type: String,
-		max: 60
-	},	
-	location: {
-		type: String,
-		autoform: {
-			type: 'map',
-			afFieldInput: {
-      				geolocation: true,
-      				searchBox: true,
-      				autolocate: true
-  			{
-  		}
+    name: {
+        type: String,
+        max: 60
+    },    
+    location: {
+        type: String,
+        autoform: {
+            type: 'map',
+            afFieldInput: {
+                  geolocation: true,
+                  searchBox: true,
+                  autolocate: true
+            {
+        }
     }
 });
 
 Cities.attachSchema(Schemas.Cities);
 ```
 
-3) Generate the form with `{{> quickform}}` or `{{#autoform}}`
+3) Initialise Google Maps with the places library BEFORE rendering the form. Eg. on startup:
+```javascript
+if (Meteor.isClient) {
+    Meteor.startup(function () {
+        GoogleMaps.load({
+            key: Meteor.settings.public.myGoogleMapsApiKey,
+            libraries: 'places'
+        });
+    });
+}
+```
+
+or in template created callback:
+```javascript
+Template.myExampleForm.onCreated(function () {
+    GoogleMaps.load({
+        key: Meteor.settings.public.myGoogleMapsApiKey,
+        libraries: 'places'
+    });
+});
+```
+
+For more info see https://github.com/dburles/meteor-google-maps#usage-overview
+
+4) Generate the form with `{{> quickform}}` or `{{#autoform}}`
 
 e.g.
 ```handlebars
@@ -54,21 +78,21 @@ Coordinates will be saved as string in format `latititude,longitude`. Alternativ
 
 ```javascript
 new SimpleSchema({
-	location: {
-		type: Object,
-		autoform: {
-			type: 'map',
-			afFieldInput: {
-				// options
-			}
-		}
-	},
-	'location.lat': {
-		type: String
-	},
-	'location.lng': {
-		type: String
-	}
+    location: {
+        type: Object,
+        autoform: {
+            type: 'map',
+            afFieldInput: {
+                // options
+            }
+        }
+    },
+    'location.lat': {
+        type: String
+    },
+    'location.lng': {
+        type: String
+    }
 });
 ```
 
@@ -76,23 +100,23 @@ Or if you want to save lat and lng as a number:
 
 ```javascript
 new SimpleSchema({
-	location: {
-		type: Object,
-		autoform: {
-			type: 'map',
-			afFieldInput: {
-				// options
-			},
-		},
-	},
-	'location.lat': {
-		type: Number,
-		decimal: true
-	},
-	'location.lng': {
-		type: Number,
-		decimal: true
-	}
+    location: {
+        type: Object,
+        autoform: {
+            type: 'map',
+            afFieldInput: {
+                // options
+            },
+        },
+    },
+    'location.lat': {
+        type: Number,
+        decimal: true
+    },
+    'location.lng': {
+        type: Number,
+        decimal: true
+    }
 });
 ```
 
@@ -100,16 +124,16 @@ Or if you want to save lat and lng as a array, important for GEOJson:
 
 ```javascript
 new SimpleSchema({
-	location: {
-		type: [Number],
-		decimal: true,
-		autoform: {
-			type: 'map',
-			afFieldInput: {
-				// options
-			}
-		}
-	}
+    location: {
+        type: [Number],
+        decimal: true,
+        autoform: {
+            type: 'map',
+            afFieldInput: {
+                // options
+            }
+        }
+    }
 });
 ```
 
