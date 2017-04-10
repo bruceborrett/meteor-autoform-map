@@ -156,6 +156,6 @@ new SimpleSchema({
 
 **googleMap** google maps specific [options](https://developers.google.com/maps/documentation/javascript/reference#MapOptions).
 
-**rendered** function called when map is rendered. [google.maps.Map](https://developers.google.com/maps/documentation/javascript/reference#Map) will be passed as an argument.
+**onRendered** function called when map is rendered. [google.maps.Map](https://developers.google.com/maps/documentation/javascript/reference#Map) will be passed as an argument.
 
 **reverse** if set to `true` lat.lng will be reversed to lng.lat. Works only with strings.
