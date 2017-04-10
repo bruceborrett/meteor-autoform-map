@@ -16,7 +16,7 @@ Schemas.Cities = new SimpleSchema({
     name: {
         type: String,
         max: 60
-    },    
+    },
     location: {
         type: String,
         autoform: {
@@ -139,18 +139,18 @@ new SimpleSchema({
 
 ### Options ###
 
-**mapType** type of google map. Possible values: `'roadmap' 'satellite' 'hybrid' 'terrain'`
+**mapType** type of google map. Possible values: `'roadmap' 'satellite' 'hybrid' 'terrain'`. Defaults to `'roadmap'`
 
-**width** *height* valid css values for width and height attributes of map. Default width is set to `'100%'` and height is `'200px'`
+**width** **height** valid css values for width and height attributes of map. Default width is set to `'100%'` and height is `'200px'`
 
-**defaultLat** default latitude
-**defaultLng** default longitude
+**defaultLat** default latitude. Defaults to `1`
+**defaultLng** default longitude. Defaults to `1`
 
 **geolocation** enables or disables geolocation feature. Defaults to `false`
 
 **searchBox** enables or disables search box. Defaults to `false`
 
-**zoom** zoom of the map. Defaults to `13`
+**zoom** zoom of the map. Defaults to `1`
 
 **autolocate** if set to `true` will automatically ask for user's location. Defaults to `false`
 
