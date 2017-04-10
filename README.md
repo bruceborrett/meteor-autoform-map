@@ -158,4 +158,6 @@ new SimpleSchema({
 
 **onRendered** function called when map is rendered. [google.maps.Map](https://developers.google.com/maps/documentation/javascript/reference#Map) will be passed as an argument.
 
+**onPlaceChanged** function called when selected place has changed either by clicking on the map or selecting a place from the searchbox. A single object is passed to the function. The object contains the formatted address and the latlng coordinates of the selected place.
+
 **reverse** if set to `true` lat.lng will be reversed to lng.lat. Works only with strings.
