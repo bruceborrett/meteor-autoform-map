@@ -4,7 +4,7 @@ Autoform map
 Edit location coordinates with autoForm.
 
 ### Setup ###
-1) Install `meteor add yogiben:autoform-map`
+1) Install `meteor add bruceborrett:autoform-map`
 
 2) Define your schema and set the `autoform` property like in the example below
 ```javascript
@@ -161,3 +161,14 @@ new SimpleSchema({
 **onPlaceChanged** function called when selected place has changed either by clicking on the map or selecting a place from the searchbox. A single object is passed to the function. The object contains the formatted address and the latlng coordinates of the selected place.
 
 **reverse** if set to `true` lat.lng will be reversed to lng.lat. Works only with strings.
+
+
+### Credits ###
+This package is a fork of [yogiben:autoform-map](https://github.com/yogiben/meteor-autoform-map) with the following differences:
+* Rewritten in plain javascript.
+* Removed Google Maps initialization.
+* Update searchbox when clicking on map.
+* Added callback for when a new place has been selected.
+* Improved readme.
+* Updated to be compatible with Meteor 1.4
+
