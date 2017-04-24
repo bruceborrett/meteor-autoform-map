@@ -11,7 +11,8 @@ Package.onUse(function(api) {
   api.use([
   	'templating',
     'reactive-var',
-  	'aldeed:autoform@5.6.0'
+  	'aldeed:autoform@5.6.0',
+  	'ecmascript'
   ], 'client');
 
   api.imply([
