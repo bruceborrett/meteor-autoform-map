@@ -12,7 +12,7 @@ Package.onUse(function(api) {
   	'templating',
     'reactive-var',
   	'aldeed:autoform@5.6.0',
-  	'ecmascript'
+  	'ecmascript@0.5.8'
   ], 'client');
 
   api.imply([
